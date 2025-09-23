@@ -1,7 +1,3 @@
-# GenAI-Lab
-
-This repository is designated for the CSCI2952G group project.
-
 # eccDNAMamba
 
 A reproducible Python 3.9 environment using Conda and pip-based requirements.
@@ -67,3 +63,4 @@ python task2_inference.py
 ```bash
 python task3_inference.py
 ```
+
