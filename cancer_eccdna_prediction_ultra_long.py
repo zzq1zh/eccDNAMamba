@@ -129,7 +129,6 @@ _, eval_data_all = train_test_split(
 
 MIN_LEN, MAX_LEN = 10_000, 200_000
 eval_data = [(seq, lab) for seq, lab in eval_data_all if MIN_LEN <= len(seq) <= MAX_LEN][-5:]
-
 eval_dataset = EccDNADataset(eval_data)
 
 # ===== Data collator (automatic padding) =====
@@ -164,14 +163,14 @@ preds  = np.argmax(logits, axis=1)
 for i, (label, pred, prob) in enumerate(zip(labels, preds, probs)):
     print(f"[{i}] label={int(label)} pred={int(pred)} probs={prob.tolist()}")
 
-import matplotlib.pyplot as plt
 
-seq_to_explain, true_label = eval_data[1]
+# IG Analysis
+seq_to_explain, true_label = eval_data[2]
 
-# Analysis first 100bp
-seq_to_explain = seq_to_explain[:100]
+seq_to_explain = seq_to_explain
 ig_out = integrated_gradients_margin(
     model, tokenizer, seq=seq_to_explain, steps=64,
+    
     baseline_type="pad", reduce="sum",
     ignore_special_tokens=True, target_label=None
 )
