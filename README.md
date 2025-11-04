@@ -1,6 +1,21 @@
 # eccDNAMamba
+[![Hugging Face](https://img.shields.io/badge/🤗%20Hugging%20Face-eccDNAMamba-yellow.svg)](https://huggingface.co/eccDNAMamba)
 
 A reproducible Python 3.9 environment using Conda and pip-based requirements.
+
+## Quick Start
+All datasets and model weights are available on [Hugging Face](https://huggingface.co/eccDNAMamba).
+
+Replace the fine-tuned model and corresponding dataset in the script below to handle different tasks.
+
+### Finetune
+```bash
+python finetune_sample.py
+```
+### Inference
+```bash
+python inference_sample.py
+```
 
 ## Environment Setup
 
@@ -31,15 +46,10 @@ pip install -r requirements.txt --no-deps
 ```bash
 pip install datasets numpy==1.26.3 pyfaidx==0.8.1.3 mamba_ssm==2.2.4 causal_conv1d==1.5.0.post8 --no-cache-dir --no-build-isolation
 ```
-
-### 5. Pre-training
+## Pre-train
+Train the model from scratch.
 ```bash
 python main.py
-```
-
-### 5. Quick Start
-```bash
-python inference_sample.py
 ```
 
 
