@@ -17,6 +17,7 @@ from transformers import (
     Trainer
 )
 from BiMambaForMaskedLM import BiMambaForMaskedLM
+from ig import integrated_gradients_margin, plot_heatmap_1d
 from sklearn.model_selection import train_test_split
 
 # ======================
@@ -182,3 +183,4 @@ print(f"pred_label={ig_out['pred_label']}, "
 tokens_vis = ig_out["tokens"]
 scores_vis = ig_out["attributions"].numpy()
 plot_heatmap_1d(tokens_vis, scores_vis, title="Token-level Attribution Heatmap")
+
