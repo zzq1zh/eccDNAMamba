@@ -14,6 +14,7 @@ from transformers import (
 )
 from BiMambaForMaskedLM import BiMambaForMaskedLM
 from sklearn.model_selection import train_test_split
+import matplotlib.pyplot as plt
 
 def plot_heatmap_1d(labels, values, title="Attribution Heatmap"):
     if len(values) == 0:
