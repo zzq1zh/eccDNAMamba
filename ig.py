@@ -30,6 +30,12 @@ def plot_heatmap_1d(labels, values, title="Attribution Heatmap"):
     cbar.set_label("Integrated Gradients attribution")
     plt.title(title)
     plt.tight_layout()
+
+    safe_title = title.replace(" ", "_").replace("/", "_")
+    filename = f"{safe_title}.png"
+    plt.savefig(filename, dpi=300, bbox_inches="tight")
+    print(f"[info] Figure saved as: {filename}")
+
     plt.show()
 
 
