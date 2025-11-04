@@ -39,6 +39,7 @@ python main.py
 
 ### 5. Quick Start
 ```bash
-python cancer_eccdna_prediction_ultra_long.py
+python inference_sample.py
 ```
+
 
