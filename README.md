@@ -1,7 +1,7 @@
 # eccDNAMamba
 [![Hugging Face](https://img.shields.io/badge/🤗%20Hugging%20Face-eccDNAMamba-yellow.svg)](https://huggingface.co/eccDNAMamba)
 
-A reproducible Python 3.9 environment using Conda and pip-based requirements.
+eccDNAMamba is the first bidirectional state-space models tailored to eccDNA.
 
 ## Quick Start
 All datasets and model weights are available on [Hugging Face](https://huggingface.co/eccDNAMamba).
@@ -51,5 +51,6 @@ Train the model from scratch.
 ```bash
 python main.py
 ```
+
 
 
