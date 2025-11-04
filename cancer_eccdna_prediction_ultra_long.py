@@ -19,7 +19,6 @@ from transformers import (
 from BiMambaForMaskedLM import BiMambaForMaskedLM
 from ig import integrated_gradients_margin, plot_heatmap_1d
 from sklearn.model_selection import train_test_split
-import matplotlib.pyplot as plt
 
 # ======================
 # Path Configuration
@@ -129,9 +128,9 @@ _, eval_data_all = train_test_split(
 )
 
 MIN_LEN, MAX_LEN = 10_000, 200_000
-eval_data = [(seq, lab) for seq, lab in eval_data_all if MIN_LEN <= len(seq) <= MAX_LEN]
+eval_data = [(seq, lab) for seq, lab in eval_data_all if MIN_LEN <= len(seq) <= MAX_LEN][-5:]
 
-eval_dataset = EccDNADataset(eval_data[-5:])
+eval_dataset = EccDNADataset(eval_data)
 
 # ===== Data collator (automatic padding) =====
 data_collator = DataCollatorWithPadding(tokenizer=tokenizer, padding=True, return_tensors="pt")
@@ -184,5 +183,4 @@ print(f"pred_label={ig_out['pred_label']}, "
 tokens_vis = ig_out["tokens"]
 scores_vis = ig_out["attributions"].numpy()
 plot_heatmap_1d(tokens_vis, scores_vis, title="Token-level Attribution Heatmap")
-
 
